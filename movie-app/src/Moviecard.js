@@ -14,7 +14,7 @@ export default class MovieCard extends Component {
     this.addStars = this.addStars.bind(this);
     this.removeStars = this.removeStars.bind(this);
     this.handleFavouriteButton = this.handleFavouriteButton.bind(this);
-    this.handleCartButton=this.handleCartButton.bind(this);
+    this.handleCartButton = this.handleCartButton.bind(this);
   }
 
   addStars() {
@@ -86,7 +86,12 @@ export default class MovieCard extends Component {
                 >
                   {this.state.isFavourite ? "Unfavourite" : "Favourite"}
                 </button>
-                <button className={this.state.isAdded?"removecart-btn":"cart-btn"} onClick={this.handleCartButton}>{this.state.isAdded?"Remove from cart":"Add to Cart"}</button>
+                <button
+                  className={this.state.isAdded ? "removecart-btn" : "cart-btn"}
+                  onClick={this.handleCartButton}
+                >
+                  {this.state.isAdded ? "Remove from cart" : "Add to Cart"}
+                </button>
               </div>
             </div>
           </div>
