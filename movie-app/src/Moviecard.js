@@ -1,36 +1,11 @@
 import { Component } from "react";
 
 export default class MovieCard extends Component {
-  
-
-  addStars=() =>{
-    // if (this.state.stars >= 5) {
-    //   return;
-    // }
-    this.setState((prevState) => ({
-      stars: prevState.stars + 0.5,
-    }));
-  }
-
-  removeStars=()=> {
-    // if (this.state.stars <= 0) {
-    //   return;
-    // }
-    this.setState((prevState) => ({
-      stars: prevState.stars - 0.5,
-    }));
-  }
-
-  handleFavouriteButton=()=> {
-    this.setState({ isFavourite: !this.state.isFavourite });
-  }
-
-  handleCartButton=() =>{
-    this.setState({ isAdded: !this.state.isAdded });
-  }
-
   render() {
-    const { title, plot, price, stars, isFavourite, isAdded } = this.props.movies;
+    const { title, plot, price, star, fav, isInCart } = this.props.movies;
+    const { addStars, removeStars, handleCartButton, handleFavButton } =
+      this.props;
+
     return (
       <div className="main">
         <div className="movie-card">
@@ -49,7 +24,7 @@ export default class MovieCard extends Component {
                   src="https://cdn-icons-png.flaticon.com/128/9146/9146915.png"
                   className="str-btn"
                   alt="decrease"
-                  onClick={this.removeStars}
+                  onClick={removeStars}
                 />
                 <img
                   src="https://cdn-icons-png.flaticon.com/128/1828/1828884.png"
@@ -59,24 +34,22 @@ export default class MovieCard extends Component {
                   src="https://cdn-icons-png.flaticon.com/128/3524/3524388.png"
                   className="str-btn"
                   alt="increase"
-                  onClick={this.addStars}
+                  onClick={addStars}
                 />
-                <span>{stars}</span>
+                <span>{star}</span>
               </div>
               <div className="button">
                 <button
-                  className={
-                    isFavourite ? "unfavourite-btn" : "favourite-btn"
-                  }
-                  onClick={this.handleFavouriteButton}
+                  className={fav ? "unfavourite-btn" : "favourite-btn"}
+                  onClick={handleFavButton}
                 >
-                  {isFavourite ? "Unfavourite" : "Favourite"}
+                  {fav ? "Unfavourite" : "Favourite"}
                 </button>
                 <button
-                  className={isAdded ? "removecart-btn" : "cart-btn"}
-                  onClick={this.handleCartButton}
+                  className={isInCart ? "removecart-btn" : "cart-btn"}
+                  onClick={handleCartButton}
                 >
-                  {isAdded ? "Remove from cart" : "Add to Cart"}
+                  {isInCart ? "Remove from cart" : "Add to Cart"}
                 </button>
               </div>
             </div>
