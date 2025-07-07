@@ -1,13 +1,15 @@
 import React from "react";
+import styles from "./Navbar.module.css";
 
 class Navbar extends React.Component{
     render(){
+        const {cartCount}=this.props;
         return (
-           <div>
-            <div>Name</div>
-            <div>
-                <img alt="cart icon" />
-                <span>0</span>
+           <div className={styles.Nav}>
+            <div className={styles.Title}>Movies-App</div>
+            <div className={styles.CartContainer}>
+                <img alt="cart icon" src="https://cdn-icons-png.flaticon.com/128/891/891462.png" className={styles.CartIcon}/>
+                <span className={styles.CartCount}>{cartCount}</span>
             </div>
            </div>
         );

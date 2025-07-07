@@ -123,3 +123,21 @@ footer.starCount {
   text-shadow: none;
   margin: 5px;
 }
+
+.navbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height:70px;
+  background-color: cadetblue;
+  width: 100%;
+}
+
+.title{
+  font-size:30px;
+  color: white;
+  font-weight: 600;
+  font-family: "Montserrat","sans-serif";
+  margin-left: 20px;
+  text-transform: uppercase;
+}
