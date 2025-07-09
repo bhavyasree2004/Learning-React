@@ -16,6 +16,7 @@ export class Form extends Component {
 
   render() {
     const {handleAdd}=this.props;
+    
     return (
       <div className="form">
         <input
@@ -24,6 +25,7 @@ export class Form extends Component {
           placeholder="Whats on your mind?"
           required
         />
+        {console.log(this.state.text)}
         {/* Add onclick event on the button to add the todos */}
         <button onClick={handleAdd(this.state.text)}>Add</button>
       </div>

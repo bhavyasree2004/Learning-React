@@ -16,7 +16,7 @@ export default class App extends Component {
   }
   handleAdd = (input) => {
     // complete the function to add a new Todo to the list
-
+    console.log(input);
   };
 
   handleRemove = () => {
