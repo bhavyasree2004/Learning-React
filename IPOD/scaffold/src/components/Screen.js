@@ -11,13 +11,17 @@ import Artists from "./Artists";
 class Screen extends React.Component {
   // Display the sidemenu, coverflow, games,Music etc here
   render() {
+    const { selectedItemIndex, menuItems } = this.props;
     return (
       <>
         <div id="screen">
           <div id="top-bar">
             <div id="battery">90%</div>
           </div>
-          <SideMenu />
+          <SideMenu
+            selectedItemIndex={selectedItemIndex}
+            menuItems={menuItems}
+          />
         </div>
       </>
     );

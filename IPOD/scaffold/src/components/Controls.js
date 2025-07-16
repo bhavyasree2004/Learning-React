@@ -14,7 +14,6 @@ function Controls() {
             className="buttons" 
             style={ {top: 20} }
             //Add onClick={}
-            
           >
             Menu
           </span>

@@ -1,28 +1,29 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 
-
-function SideMenu() {
-// write logic for changing the selected item in the side menu
-
+function SideMenu(props) {
+  // write logic for changing the selected item in the side menu
+  const { selectedItemIndex, menuItems } = props;
   return (
     <table id="side-menu">
-        <tbody>
+      <tbody>
         <tr>
-            <th className="table-heading">iPod <i className="fas fa-home"></i></th>
+          <th className="table-heading">
+            iPod <i className="fas fa-home"></i>
+          </th>
         </tr>
-        <tr data-option="coverflow">
-            <td className="table-item">Coverflow<i className="fas fa-chevron-right"></i></td> 
-        </tr>
-        <tr data-option="music">
-            <td className="table-item">Music<i className="fas fa-chevron-right"></i></td>
-        </tr>
-        <tr data-option="games">
-            <td className="table-item">Games<i className="fas fa-chevron-right"></i></td>
-        </tr>
-        <tr data-option="settings">
-            <td className="table-item">Settings<i className="fas fa-chevron-right"></i></td>
-        </tr>
-        </tbody>
+        {menuItems.map((item, index) => (
+          <tr
+            key={index}
+            data-option={item}
+            className={index == selectedItemIndex ? "active" : ""}
+          >
+            <td className="table-item">
+              {item.charAt(0).toUpperCase() + item.slice(1)}
+              <i className="fas fa-chevron-right"></i>
+            </td>
+          </tr>
+        ))}
+      </tbody>
     </table>
   );
 }
