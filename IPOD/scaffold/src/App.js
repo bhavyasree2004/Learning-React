@@ -12,6 +12,16 @@ class App extends React.Component {
     };
   }
   // Handle the rotate event fired from the control component
+  handleRotation = (direction) => {
+    const { selectedItemIndex, menuItems } = this.state;
+    let newIndex = selectedItemIndex;
+    if (direction == "clockwise") {
+      newIndex = (selectedItemIndex + 1) % menuItems.length;
+    } else {
+      newIndex = (selectedItemIndex - 1 + menuItems.length) % menuItems.length;
+    }
+    this.setState({ selectedItemIndex: newIndex });
+  };
 
   // If ok button is clicked,  open the selected component
 
@@ -25,7 +35,7 @@ class App extends React.Component {
             selectedItemIndex={this.state.selectedItemIndex}
             menuItems={this.state.menuItems}
           />
-          <Controls />
+          <Controls onRotate={this.handleRotation} />
         </div>
       </>
     );
