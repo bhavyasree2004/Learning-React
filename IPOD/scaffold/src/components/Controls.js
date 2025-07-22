@@ -72,8 +72,7 @@ class Controls extends React.Component {
             id="menu-button"
             className="buttons"
             style={{ top: 20 }}
-
-            //Add onClick={}
+            onClick={this.props.onMenuClick}
           >
             Menu
           </span>
@@ -99,7 +98,7 @@ class Controls extends React.Component {
             style={{ bottom: 13, width: 30, height: 37 }}
           ></img>
 
-          <div id="ok-button">
+          <div id="ok-button" onClick={this.props.onOkay}>
             <b>OK</b>
           </div>
         </div>
